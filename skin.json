@@ -1,0 +1,74 @@
+{
+   "name":"MediaWikiBootstrap",
+   "version":"2.0",
+   "author":"JL TRYOEN",
+   "url":"",
+   "descriptionmsg":"Bootstrap MediaWiki",
+   "namemsg":"Bootstrap MediaWiki",
+   "license-name":"CC0-1.0",
+   "type":"skin",
+   "requires":{
+      "MediaWiki":">= 1.29.0"
+   },
+	"ValidSkinNames": {
+		"mediawikibootstrap": {
+			"class": "SkinMediaWikiBootstrap",
+			"@args": "See SkinMediaWikiBootstrap::__construct for more detail.",
+			"args": [
+				{
+					"name": "mediawikibootstrap",
+					"templateDirectory": "includes/templates"
+				}
+			]
+		}
+	},
+   "MessagesDirs":{
+      "mediawikibootstrap":[
+         "i18n"
+      ]
+   },
+   "ResourceModules":{
+      "skins.mediawikibootstrap":{
+         "styles":{
+            
+            "../../vendor/twbs/bootstrap/dist/css/bootstrap.min.css":{
+               "media":"screen"
+            },
+			"./resources/css/joomla.css":{
+               "media":"screen"
+            },         
+            "./resources/css/mediawiki.css":{
+               "media":"screen"
+            }
+         }
+      },
+      "skins.mediawikibootstrap.custom":{
+         "styles":{
+            
+         }
+      },
+      "skins.mediawikibootstrap.js":{
+         "scripts":[
+			"./resources/js/mediawiki.js",
+            "../../vendor/components/jquery/jquery.min.js",
+            "../../vendor/twbs/bootstrap/dist/js/bootstrap.bundle.js"
+         ]
+      },
+      "skins.mediawikibootstrap.custom.js":{
+         "scripts":[
+            
+         ]
+      }
+   },
+   "ResourceFileModulePaths":{
+      "localBasePath":"",
+      "remoteSkinPath":"mediawikibootstrap"
+   },
+   "ResourceModuleSkinStyles":{
+      
+   },
+   "AutoloadClasses":{
+	  "SkinMediaWikiBootstrap":"includes/MediaWikiBootstrap.skin.php"	  
+   },
+   "manifest_version":1
+}
