@@ -1,0 +1,16 @@
+<li class="dropdown nav-item" data-dropdown="dropdown">
+	<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Page</a>
+		<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+			{{#data-content-actions}}
+			<li id="ca-{{{key}}}" >
+				<a class="dropdown-item" href="{{{href}}}">
+					{{{text}}}
+				</a>
+			</li>
+			{{/data-content-actions}}
+		</ul>
+	</a>
+</li>
+
+
+

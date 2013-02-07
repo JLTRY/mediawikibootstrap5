@@ -1,0 +1,26 @@
+{{#data-navbar}}
+{{#parent}}
+<li class="dropdown nav-item" >
+	<a href="{{link}}" class="nav-link {{class}}" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+		{{title}}
+	</a>
+<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+{{/parent}}	
+{{^parent}}
+<li class="nav-item" >
+	<a href="{{link}}" class="nav-link">
+		{{title}}
+	</a>
+{{/parent}}		
+{{#sublinks}}
+<li>
+	<a class="dropdown-item" href="{{link}}">
+		{{title}} 
+	</a>
+</li>
+{{/sublinks}}
+{{#sublinks.length}}	
+</ul>
+{{/sublinks.length}}	
+</li>
+{{/data-navbar}}

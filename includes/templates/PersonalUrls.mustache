@@ -1,0 +1,19 @@
+<li class="dropdown nav-item" data-dropdown="dropdown">
+	<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+	{{html-get-user-name}}
+	</a>
+	<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+			{{#data-personal-urls}}
+			<li {{{attributes}}} id="ca-{{{key}}}" >
+				<a class="dropdown-item" href="{{{href}}}"
+							class="{{{class}}}">
+							{{{text}}}
+				</a>
+			</li>
+			{{/data-personal-urls}}
+		</ul>
+	</a>
+</li>
+
+
+
