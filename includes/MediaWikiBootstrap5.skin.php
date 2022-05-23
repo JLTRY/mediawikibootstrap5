@@ -84,6 +84,7 @@ class SkinMediaWikiBootstrap5  extends SkinMustache {
 		$content_actions = $this->buildContentActionUrls($this->buildContentNavigationUrls());
 		$personal_urls = array_values($this->injectLegacyMenusIntoPersonalTools($this->buildContentNavigationUrls()));
 		$this->data['nav_urls'] = $this->buildNavUrls();
+		$this->data['notspecialpage'] = !$title->isSpecialPage();
 		// Naming conventions for Mustache parameters.
 		//
 		// Value type (first segment):
