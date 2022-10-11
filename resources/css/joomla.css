@@ -269,10 +269,10 @@ body .container {
 		display: block !important;
 	}
 
-	.offset1_2,.offset1-2 {
+    div.offset1_2 {
 		margin-left: 50px !important;
 	}
-	.row-fluid .offset1_2,.row-fluid .offset1-2 {
+	.row-fluid div.offset1_2,.row-fluid .offset1-2 {
 		margin-left: 5.32% !important;
 		*margin-left: 5.25% !important;
 	}

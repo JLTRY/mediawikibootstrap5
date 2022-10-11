@@ -76,7 +76,7 @@ class SkinMediaWikiBootstrap5  extends SkinMustache {
 	 * @inheritDoc
 	 */
 	public function getTemplateData(): array {
-		global $wgUser, $wgFooterTexts;
+		global $wgFooterTexts;
 		$skin = $this;
 		$out = $skin->getOutput();
 		$title = $out->getTitle();
@@ -105,14 +105,14 @@ class SkinMediaWikiBootstrap5  extends SkinMustache {
 		$commonSkinData = array_merge( $parentData, [
 			'html-connexion' => $this->connexion(),
 			'html-search-box' => $this->html_search_box(),
-			'html-get-user-name' => $wgUser->getName(),
+			'html-get-user-name' => $this->getUser()->getName(),
 			'html-title' => $out->getPageTitle(),
 			'html-categories' => $skin->getCategories(),	
 			'html-output' => $out->getHTML(),
 			'is-article' => (bool)$out->isArticle(),
 			'is-anon' => $this->getUser()->isAnon(),
 			'is-mainpage' => $title->isMainPage(),
-			'is-registered' => $wgUser && $wgUser->isRegistered(),
+			'is-registered' => $this->getUser() && $this->getUser()->isRegistered(),
 			'data-navbar' => $this->data_navbar(),
 			'data-content-actions' => $content_actions,
 			"data-texts" =>	array_values($wgFooterTexts),
