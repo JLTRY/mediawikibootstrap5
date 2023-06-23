@@ -115,7 +115,7 @@ class SkinMediaWikiBootstrap5  extends SkinMustache {
 			'is-registered' => $this->getUser() && $this->getUser()->isRegistered(),
 			'data-navbar' => $this->data_navbar(),
 			'data-content-actions' => $content_actions,
-			"data-texts" =>	array_values($wgFooterTexts),
+			//"data-texts" =>	array_values($wgFooterTexts),
 			'data-personal-urls' => array_values($personal_urls),
 			'data-toolbox' => $this->data_toolbox(),
 			'data-footer-texts' => $this->data_footer_texts(),

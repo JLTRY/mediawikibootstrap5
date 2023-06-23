@@ -1,3 +1,10 @@
+:root {
+  --bs-navbar-nav-link-padding-x:.0.5em;
+  --bs-navbar-nav-link-padding-y:.0.5em;
+  --bs-navbar-hover-color: #1e2125;
+}
+
+
 body.mediawiki, body.mediawiki
 {
 	border-top: 3px solid #0088cc;
@@ -24,6 +31,13 @@ a
 	position: relative;
 }
 
+
+
+.nav-link:focus,
+.nav-link:hover {
+    color:var(--bs-navbar-hover-color);
+    background-color: #e9ecef;
+}
 
 .dropdown-menu {
 	font-size: 13px !important;

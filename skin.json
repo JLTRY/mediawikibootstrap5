@@ -31,13 +31,13 @@
       "skins.mediawikibootstrap5":{
          "styles":{
             "../../vendor/twbs/bootstrap/dist/css/bootstrap.min.css":{
-               "media":"screen"
+               
             },
 			"./resources/css/joomla.css":{
-               "media":"screen"
+               
             },         
             "./resources/css/mediawiki.css":{
-               "media":"screen"
+               
             }
          }
       },
