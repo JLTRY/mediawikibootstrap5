@@ -9,6 +9,7 @@
  */
 
 use MediaWiki\MediaWikiServices;
+use MediaWiki\Skin\SkinComponentUtils;
 
 
 
@@ -18,15 +19,15 @@ use MediaWiki\MediaWikiServices;
  * @ingroup Skins
  */
 class SkinMediaWikiBootstrap5  extends SkinMustache {
-	
-	public function __construct( $options = [] ) {		
+
+	public function __construct( $options = [] ) {
 		$options['scripts'] = [ 'skins.mediawikibootstrap5.js' ];
-		$options['styles'] = [ 'skins.mediawikibootstrap5' ];
+		$options['styles'] = [ 'skins.mediawikibootstrap5',  ];
 		$options['template'] = 'skin';
-		unset( $options['link'] );		
+		unset( $options['link'] );
 		parent::__construct( $options );
 	}
-	
+
 	function getPageRawText($title) {
 		$pageTitle = Title::newFromText($title);
 		if(!$pageTitle->exists()) {
@@ -36,7 +37,7 @@ class SkinMediaWikiBootstrap5  extends SkinMustache {
 		  return $article->getPage()->getContent()->getNativeData();
 		}
 	}
-		
+
 	private function buildContentActionUrls( $content_navigation ) {
 		// content_actions has been replaced with content_navigation for backwards
 		// compatibility and also for skins that just want simple tabs content_actions
@@ -71,7 +72,7 @@ class SkinMediaWikiBootstrap5  extends SkinMustache {
 
 		return array_values($content_actions);
 	}
-	
+
 	/**
 	 * @inheritDoc
 	 */
@@ -107,7 +108,7 @@ class SkinMediaWikiBootstrap5  extends SkinMustache {
 			'html-search-box' => $this->html_search_box(),
 			'html-get-user-name' => $this->getUser()->getName(),
 			'html-title' => $out->getPageTitle(),
-			'html-categories' => $skin->getCategories(),	
+			'html-categories' => $skin->getCategories(),
 			'html-output' => $out->getHTML(),
 			'is-article' => (bool)$out->isArticle(),
 			'is-anon' => $this->getUser()->isAnon(),
@@ -121,24 +122,26 @@ class SkinMediaWikiBootstrap5  extends SkinMustache {
 			'data-footer-texts' => $this->data_footer_texts(),
 			'data-footer-links' => $this->data_footer_links()
 		]);
-	
+
 
 		return $commonSkinData;
 	}
 
-	function connexion(): string {			
+	function connexion(): string {
 		$templateParser = $this->getTemplateParser();
-		$returnto = $this->getReturnToParam();
+		$returnto = SkinTemplate::getReturnToParam($this->getTitle(),
+			$this->getRequest(),
+			$this->getAuthority());
 		$loginData = $this->buildLoginData( $returnto, True );
 		return $templateParser->processTemplate('UserLinks__login',
 				 [ 'htmlLogin' => $this->makeLink( 'login', $loginData )]);
 	}
-	
-	
+
+
 
 	function html_search_box()
 	{
-		$config = $this->getConfig();		
+		$config = $this->getConfig();
 		$html_search_box = '<form class="pull-right" style="display:inline;" action="'.
 			$config->get( 'Script' ) .
 			'" id="search-form">' .
@@ -146,7 +149,7 @@ class SkinMediaWikiBootstrap5  extends SkinMustache {
 		</form>';
 		return $html_search_box;
 	}
-	
+
 	function getPageContent($page)
 	{
 		$nabvar = "";
@@ -159,7 +162,7 @@ class SkinMediaWikiBootstrap5  extends SkinMustache {
 			if (preg_match('/^\*\s*\[\[(.+)\|(.+)\]\]/', $line, $match)) {
 				$data_navbar[] = array('title'=>$match[2], 'link'=>$match[1], 'html'=>true);
 			}
-			elseif (preg_match('/^\*\s*\[([^ ]+) +(.+)\]/', $line, $match)) {			
+			elseif (preg_match('/^\*\s*\[([^ ]+) +(.+)\]/', $line, $match)) {
 				$data_navbar[] = array('title'=>$match[2], 'link'=>$match[1], 'html'=>true);
 			}
 			elseif (preg_match('/^\*\s*\[\[(.+)\]\]/', $line, $match)) {
@@ -182,7 +185,7 @@ class SkinMediaWikiBootstrap5  extends SkinMustache {
 			}
 		}	   
 		return $data_navbar;  
-	}	
+	}
 
 
 	function data_navbar() {
@@ -192,7 +195,7 @@ class SkinMediaWikiBootstrap5  extends SkinMustache {
 
 	/*************************************************************************************************/
 	function data_toolbox() {
-		
+
 		$data_toolbox = array();
 		if ($this->data['notspecialpage']) {
 			$data_toolbox[] = [
@@ -214,14 +217,14 @@ class SkinMediaWikiBootstrap5  extends SkinMustache {
 							'href' => htmlspecialchars($this->data['nav_urls']['trackbacklink']['href']),
 							'msg' => $this->msg('trackbacklink')
 						  ];
-		}				
+		}
 		foreach( array('contributions', 'log', 'blockip', 'emailuser', 'upload', 'specialpages') as $special ) {
 			if ($this->data['nav_urls'][$special]) {
 				$data_toolbox[] = [
 							'id' => 't-' . $special ,
 							'href' => htmlspecialchars($this->data['nav_urls'][$special]['href']),
 							'msg' => $this->msg($special)
-						  ];				
+						  ];
 			}
 		}
 		if (!empty($this->data['nav_urls']['print']['href'])) { 
@@ -229,7 +232,7 @@ class SkinMediaWikiBootstrap5  extends SkinMustache {
 							'id' => 't-print' ,
 							'href' => htmlspecialchars($this->data['nav_urls']['print']['href']),
 							'msg' => $this->msg('printableversion')
-						  ];				
+						  ];
 		}
 
 		if (!empty($this->data['nav_urls']['permalink']['href'])) { 
@@ -237,22 +240,22 @@ class SkinMediaWikiBootstrap5  extends SkinMustache {
 							'id' => 't-permalink' ,
 							'href' => htmlspecialchars($this->data['nav_urls']['permalink']['href']),
 							'msg' => $this->msg('permalink')
-						  ];				
+						  ];
 		}
-		return $data_toolbox;				
+		return $data_toolbox;
 	}
 
 
-	
+
 	function data_footer_links() {
 		return $this->getPageContent('MediaWikiBootstrap:FooterLinks');
 	}
-	
+
 	function data_footer_texts() {
 		$data_row_texts = $this->getPageRawText('MediaWikiBootstrap:FooterTexts');
-		$lines = array();		
+		$lines = array();
 		foreach(explode("\n",$data_row_texts) as $line )
-		{			
+		{
 			$lines[] = ["line" => $line];
 		}
 		return $lines;
