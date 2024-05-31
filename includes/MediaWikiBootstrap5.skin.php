@@ -29,7 +29,7 @@ class SkinMediaWikiBootstrap5  extends SkinMustache {
 	}
 
 	function getPageRawText($title) {
-		$pageTitle = Title::newFromText($title);
+		$pageTitle = Title::newFromText($title, NS_MEDIAWIKIBOOTSTRAP);
 		if(!$pageTitle->exists()) {
 		  return null;
 		} else {
@@ -129,10 +129,11 @@ class SkinMediaWikiBootstrap5  extends SkinMustache {
 
 	function connexion(): string {
 		$templateParser = $this->getTemplateParser();
-		$returnto = SkinTemplate::getReturnToParam($this->getTitle(),
+		$returnto = SkinComponentUtils::getReturnToParam($this->getTitle(),
 			$this->getRequest(),
 			$this->getAuthority());
 		$loginData = $this->buildLoginData( $returnto, True );
+		wfDebugLog( 'bootstrap5',  print_r($loginData, 1));
 		return $templateParser->processTemplate('UserLinks__login',
 				 [ 'htmlLogin' => $this->makeLink( 'login', $loginData )]);
 	}
@@ -189,7 +190,7 @@ class SkinMediaWikiBootstrap5  extends SkinMustache {
 
 
 	function data_navbar() {
-		return $this->getPageContent('MediaWikiBootstrap:TitleBar');
+		return $this->getPageContent('TitleBar');
 	}
 
 
@@ -248,11 +249,11 @@ class SkinMediaWikiBootstrap5  extends SkinMustache {
 
 
 	function data_footer_links() {
-		return $this->getPageContent('MediaWikiBootstrap:FooterLinks');
+		return $this->getPageContent('FooterLinks');
 	}
 
 	function data_footer_texts() {
-		$data_row_texts = $this->getPageRawText('MediaWikiBootstrap:FooterTexts');
+		$data_row_texts = $this->getPageRawText('FooterTexts');
 		$lines = array();
 		foreach(explode("\n",$data_row_texts) as $line )
 		{
