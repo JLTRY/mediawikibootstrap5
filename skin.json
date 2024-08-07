@@ -1,6 +1,6 @@
 {
    "name":"MediaWikiBootstrap5",
-   "version":"1.0.0",
+   "version":"1.1.0",
    "author":"JL TRYOEN",
    "url":"",
    "descriptionmsg":"Bootstrap MediaWiki",
@@ -8,7 +8,7 @@
    "license-name":"CC0-1.0",
    "type":"skin",
    "requires":{
-      "MediaWiki":">= 1.31.1"
+      "MediaWiki":">= 1.39.1"
    },
     "ValidSkinNames": {
         "mediawikibootstrap5": {
@@ -60,7 +60,7 @@
       
    },
    "AutoloadClasses":{
-      "SkinMediaWikiBootstrap5":"includes/MediaWikiBootstrap5.skin.php"      
+      "SkinMediaWikiBootstrap5":"includes/MediaWikiBootstrap5.skin.php"
    },
    "manifest_version":1
 }

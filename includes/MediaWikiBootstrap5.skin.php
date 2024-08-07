@@ -19,6 +19,11 @@ use MediaWiki\Skin\SkinComponentUtils;
  * @ingroup Skins
  */
 class SkinMediaWikiBootstrap5  extends SkinMustache {
+	
+	/**
+	 * @var array|null
+	 */
+	private $contentNavigationUrls;
 
 	public function __construct( $options = [] ) {
 		$options['scripts'] = [ 'skins.mediawikibootstrap5.js' ];
@@ -72,6 +77,38 @@ class SkinMediaWikiBootstrap5  extends SkinMustache {
 
 		return array_values($content_actions);
 	}
+
+/**
+	 * @inheritDoc
+	 */
+	protected function runOnSkinTemplateNavigationHooks( $skin, &$contentNavigationUrls ) {
+		parent::runOnSkinTemplateNavigationHooks( $skin, $contentNavigationUrls );
+		// There are some SkinTemplate modifications that occur after the execution of this hook
+		// to add rel attributes and ID attributes.
+		// The only one Minerva needs is this one so we manually add it.
+		foreach( array_keys( $contentNavigationUrls['namespaces'] ) as $id ) {
+			if ( in_array( $id,[ 'user_talk', 'talk' ] ) ) {
+					$contentNavigationUrls['namespaces'][ $id ]['rel'] = 'discussion';
+			}
+		}
+		$this->contentNavigationUrls = $contentNavigationUrls;
+	}
+
+	/**
+	 * Change access to public, as it is used in partials
+	 *
+	 * @return array
+	 */
+	final public function buildContentNavigationUrls() {
+		if ( !method_exists( parent::class, 'runOnSkinTemplateNavigationHooks' ) ) {
+			// Support for MediaWiki versions < 1.37
+			return parent::buildContentNavigationUrls();
+		} else {
+			// Works with mediawiki version >= 1.37
+			return $this->contentNavigationUrls;
+		}
+	}
+
 
 	/**
 	 * @inheritDoc
@@ -127,6 +164,10 @@ class SkinMediaWikiBootstrap5  extends SkinMustache {
 		return $commonSkinData;
 	}
 
+
+
+
+
 	function connexion(): string {
 		$templateParser = $this->getTemplateParser();
 		$returnto = SkinComponentUtils::getReturnToParam($this->getTitle(),
@@ -157,34 +198,36 @@ class SkinMediaWikiBootstrap5  extends SkinMustache {
 		$titleBar = $this->getPageRawText($page);
 
 		$data_navbar = array();
-		foreach(explode("\n", $titleBar) as $line) {
-			if (trim($line) == '') continue;
+		if ($titleBar) {
+			foreach(explode("\n", $titleBar) as $line) {
+				if (trim($line) == '') continue;
 
-			if (preg_match('/^\*\s*\[\[(.+)\|(.+)\]\]/', $line, $match)) {
-				$data_navbar[] = array('title'=>$match[2], 'link'=>$match[1], 'html'=>true);
+				if (preg_match('/^\*\s*\[\[(.+)\|(.+)\]\]/', $line, $match)) {
+					$data_navbar[] = array('title'=>$match[2], 'link'=>$match[1], 'html'=>true);
+				}
+				elseif (preg_match('/^\*\s*\[([^ ]+) +(.+)\]/', $line, $match)) {
+					$data_navbar[] = array('title'=>$match[2], 'link'=>$match[1], 'html'=>true);
+				}
+				elseif (preg_match('/^\*\s*\[\[(.+)\]\]/', $line, $match)) {
+					$data_navbar[] = array('title'=>$match[1], 'link'=>$match[1], 'html'=>true);
+				}
+				elseif (preg_match('/^\*\*\s*\[\[(.+)\|(.+)\]\]/', $line, $match)) {
+					$data_navbar[count($data_navbar)-1]['sublinks'][] = array('title'=>$match[2], 'link'=>$match[1], 'html'=>true);
+					$data_navbar[count($data_navbar)-1]['class'] = 'dropdown-toggle';
+					$data_navbar[count($data_navbar)-1]['link'] = '#';
+					$data_navbar[count($data_navbar)-1]['parent'] = true;
+				}
+				elseif( preg_match('/\*\*\s*\[\[(.+)\]\]/', $line, $match)) {
+					$data_navbar[count($data_navbar)-1]['sublinks'][] = array('title'=>$match[1], 'link'=>$match[1], 'html'=>true);
+					$data_navbar[count($data_navbar)-1]['class'] = 'dropdown-toggle';
+					$data_navbar[count($data_navbar)-1]['link'] = '#';
+					$data_navbar[count($data_navbar)-1]['parent'] = true;
+				}
+				elseif (preg_match('/^\*\s*(.+)/', $line, $match)) {
+					$data_navbar[] = array('title'=>$match[1], 'html'=>true);
+				}
 			}
-			elseif (preg_match('/^\*\s*\[([^ ]+) +(.+)\]/', $line, $match)) {
-				$data_navbar[] = array('title'=>$match[2], 'link'=>$match[1], 'html'=>true);
-			}
-			elseif (preg_match('/^\*\s*\[\[(.+)\]\]/', $line, $match)) {
-				$data_navbar[] = array('title'=>$match[1], 'link'=>$match[1], 'html'=>true);
-			}
-			elseif (preg_match('/^\*\*\s*\[\[(.+)\|(.+)\]\]/', $line, $match)) {
-				$data_navbar[count($data_navbar)-1]['sublinks'][] = array('title'=>$match[2], 'link'=>$match[1], 'html'=>true);
-				$data_navbar[count($data_navbar)-1]['class'] = 'dropdown-toggle';
-				$data_navbar[count($data_navbar)-1]['link'] = '#';
-				$data_navbar[count($data_navbar)-1]['parent'] = true;
-			}
-			elseif( preg_match('/\*\*\s*\[\[(.+)\]\]/', $line, $match)) {
-				$data_navbar[count($data_navbar)-1]['sublinks'][] = array('title'=>$match[1], 'link'=>$match[1], 'html'=>true);
-				$data_navbar[count($data_navbar)-1]['class'] = 'dropdown-toggle';
-				$data_navbar[count($data_navbar)-1]['link'] = '#';
-				$data_navbar[count($data_navbar)-1]['parent'] = true;
-			}
-			elseif (preg_match('/^\*\s*(.+)/', $line, $match)) {
-				$data_navbar[] = array('title'=>$match[1], 'html'=>true);
-			}
-		}	   
+		}
 		return $data_navbar;  
 	}
 
