@@ -60,7 +60,7 @@
       
    },
    "AutoloadClasses":{
-      "SkinMediaWikiBootstrap5":"includes/MediaWikiBootstrap5.skin.php"      
+      "SkinMediaWikiBootstrap5":"includes/MediaWikiBootstrap5.skin.php"
    },
    "manifest_version":1
 }
