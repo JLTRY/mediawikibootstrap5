@@ -6,8 +6,8 @@ This is a MediaWiki skin that uses Bootstrap 5 from Twitter!
 * uses mediawiki SkinMustache
 * Customizable menu and icon footer
 
-## Latest Versions
-* 1.0.0
+## Latest Version
+* 1.1.0
     
 Download the latest [release here][2]. For a full version history go to [here][3].
 
@@ -39,7 +39,7 @@ In `composer.local.json` set:
 ```
 
 ### customize your skin
-#### Create: 'MediaWikiBootstrap:TitleBar
+#### Create: 'MediaWikiBootstrap:TitleBar'
 This MediaWiki page will contain items that will appear in your Menu. 
  I've set mine to the following:
 
@@ -52,7 +52,17 @@ This MediaWiki page will contain items that will appear in your Menu.
 ** [[Mediawiki|Install MediaWiki]]
 ** [[Aide:Accueil|Aide]]
 ```
+#### Create: 'MediaWikiBootstrap:FooterLinks' and 'MediaWikiBootstrap:FooterTexts
+This will appear at the bottom of your site
+
+I have set mine to the following
+```
+* [[FAQ_de_JLT:À_propos_de|À propos de la FAQ de JLT]]
+* [[Spécial:Contact|Contact]]
+
+'<b>© 2011-2024</b> La FAQ de JLT'
+```
 
 [1]: https://getbootstrap.com/docs/5.0/getting-started/introduction/
-[2]: https://github.com/JLTRY/mediawikibootstrap/releases/tag/V1.0.0
+[2]: https://github.com/JLTRY/mediawikibootstrap/releases/tag/V1.1.0
 [3]: https://github.com/JLTRY/mediawikibootstrap/
