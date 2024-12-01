@@ -6,8 +6,10 @@ This is a MediaWiki skin that uses Bootstrap 5 from Twitter!
 * uses mediawiki SkinMustache
 * Customizable menu and icon footer
 
+ <img src="MediaWiki.jpg" width="350" title="MediaWiki">
+
 ## Latest Version
-* 1.1.0
+* 1.1.2 : compatible with MediaWiki 1.42.3
     
 Download the latest [release here][2]. For a full version history go to [here][3].
 
