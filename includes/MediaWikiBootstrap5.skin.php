@@ -24,11 +24,13 @@ class SkinMediaWikiBootstrap5  extends SkinMustache {
 	 * @var array|null
 	 */
 	private $contentNavigationUrls;
+	private $data;
 
 	public function __construct( $options = [] ) {
 		$options['scripts'] = [ 'skins.mediawikibootstrap5.js' ];
 		$options['styles'] = [ 'skins.mediawikibootstrap5',  ];
 		$options['template'] = 'skin';
+		$data = array();
 		unset( $options['link'] );
 		parent::__construct( $options );
 	}
