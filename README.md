@@ -66,5 +66,5 @@ I have set mine to the following
 ```
 
 [1]: https://getbootstrap.com/docs/5.0/getting-started/introduction/
-[2]: https://github.com/JLTRY/mediawikibootstrap/releases/tag/V1.1.0
+[2]: https://github.com/JLTRY/mediawikibootstrap/releases/tag/V1.1.1
 [3]: https://github.com/JLTRY/mediawikibootstrap/
