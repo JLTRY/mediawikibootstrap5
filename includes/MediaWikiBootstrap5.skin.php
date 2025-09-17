@@ -10,6 +10,7 @@
 
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Skin\SkinComponentUtils;
+use MediaWiki\Title\Title;
 
 
 
@@ -230,6 +231,11 @@ class SkinMediaWikiBootstrap5  extends SkinMustache {
 				}
 			}
 		}
+        $user = RequestContext::getMain()->getUser();
+        if ($user->isAllowed('bureaucrat') || $user->isAllowed('sysop')) {
+            // L'utilisateur est un administrateur
+            $data_navbar[] = array('title' => $this->msg('specialpages'), 'link'=>'Spécial:Pages_spéciales', 'html'=>true);
+        }
 		return $data_navbar;  
 	}
 
@@ -264,7 +270,7 @@ class SkinMediaWikiBootstrap5  extends SkinMustache {
 							'msg' => $this->msg('trackbacklink')
 						  ];
 		}
-		foreach( array('contributions', 'log', 'blockip', 'emailuser', 'upload', 'specialpages') as $special ) {
+		foreach( array('contributions', 'log', 'blockip', 'emailuser', 'upload') as $special ) {
 			if ($this->data['nav_urls'][$special]) {
 				$data_toolbox[] = [
 							'id' => 't-' . $special ,
@@ -288,6 +294,7 @@ class SkinMediaWikiBootstrap5  extends SkinMustache {
 							'msg' => $this->msg('permalink')
 						  ];
 		}
+		$this->buildSidebar();
 		return $data_toolbox;
 	}
 

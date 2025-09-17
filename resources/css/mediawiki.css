@@ -303,29 +303,3 @@ ul {
 
 
 
-
-.cdx-button {
-	display: inline-flex;
-	align-items: center;
-	justify-content: center;
-	gap: 6px;
-	box-sizing: border-box;
-	min-height: 32px;
-	max-width: 28rem;
-	margin: 0;
-	border-width: 1px;
-	border-style: solid;
-	border-radius: 2px;
-	padding-right: 11px;
-	padding-left: 11px;
-	margin-left: 0.5em;
-	font-family: inherit;
-	font-size: var(--font-size-medium,1rem);
-	font-weight: 700;
-	overflow: hidden;
-	text-overflow: ellipsis;
-	white-space: nowrap;
-	text-transform: none;
-	transition-property: background-color,color,border-color,box-shadow;
-	transition-duration: .1s;
-}
