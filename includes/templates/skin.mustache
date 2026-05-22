@@ -1,8 +1,8 @@
 <head>
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 </head>
-<body class="site">	
-	<div class="container">
+<body class="site">
+	<div class="container mw-body">
 		<div class="row navbar navbar-expand-lg navbar-light bg-faded">
 			<button class="navbar-toggler ml-auto collapsed" id="btn-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 				<span class="navbar-toggler-icon"></span>
@@ -13,11 +13,11 @@
 				<div class="col-lg-9">
 					<a href="{{link-mainpage}}">
 						{{#data-logos}}
-							{{^wordmark}}<img src="{{1x}}" width="{{width}}" height="{{height}}">{{/wordmark}}							
+							{{^wordmark}}<img src="{{1x}}" width="{{width}}" height="{{height}}">{{/wordmark}}
 						{{/data-logos}}
 					</a>
 				</div>
-				<div class="col-lg-3 row">						
+				<div class="col-lg-3 row">
 					<div class="col-lg-12 col-6">
 						{{^is-registered}}
 						<br/>
@@ -38,25 +38,25 @@
 				{{#is-registered}}
 				{{>PersonalUrls}}
 				{{>ContentActions}}
-				{{>ToolBox}}				
+				{{>ToolBox}}
 				{{/is-registered}}
 			</ul>
-		</div>		
+		</div>
 		<div class="container">
 			<h1 class="firstHeading">{{{html-title}}}</h1>
 			{{{html-output}}}
 			{{{html-categories}}}
 		</div>
 		<div class="footer" style="height:60px;">
-			<hr>								
+			<hr>
 			{{#data-footer}}
 			<p style="float: left;">
 				{{!}}{{#data-icons}}{{>FooterList}}{{/data-icons}}
 				{{/data-footer}}
-				{{>FooterTexts}}				
-			</p>				
-			{{>FooterBarLinks}}			
-		</div><!--footer -->		
+				{{>FooterTexts}}
+			</p>
+			{{>FooterBarLinks}}
+		</div><!--footer -->
 	</div><!--container -->
-</body>	
+</body>
 </html>

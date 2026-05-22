@@ -29,7 +29,7 @@ class SkinMediaWikiBootstrap5  extends SkinMustache {
 
 	public function __construct( $options = [] ) {
 		$options['scripts'] = [ 'skins.mediawikibootstrap5.js' ];
-		$options['styles'] = [ 'skins.mediawikibootstrap5',  ];
+		$options['styles'] = [ 'skins.mediawikibootstrap5' , 'mediawiki.htmlform.codex.styles' ];
 		$options['template'] = 'skin';
 		$data = array();
 		unset( $options['link'] );
@@ -69,7 +69,7 @@ class SkinMediaWikiBootstrap5  extends SkinMustache {
 				}
 
 				if ( isset( $content_actions[$key] ) ) {
-					wfDebug( __METHOD__ . ": Found a duplicate key for $key while flattening " .
+					wfDebug("bootstrap5", __METHOD__ . ": Found a duplicate key for $key while flattening " .
 						"content_navigation into content_actions." );
 					continue;
 				}
@@ -231,11 +231,6 @@ class SkinMediaWikiBootstrap5  extends SkinMustache {
 				}
 			}
 		}
-        $user = RequestContext::getMain()->getUser();
-        if ($user->isAllowed('bureaucrat') || $user->isAllowed('sysop')) {
-            // L'utilisateur est un administrateur
-            $data_navbar[] = array('title' => $this->msg('specialpages'), 'link'=>'Spécial:Pages_spéciales', 'html'=>true);
-        }
 		return $data_navbar;  
 	}
 
@@ -295,6 +290,12 @@ class SkinMediaWikiBootstrap5  extends SkinMustache {
 						  ];
 		}
 		$this->buildSidebar();
+        $user = RequestContext::getMain()->getUser();
+        $ugm = MediaWikiServices::getInstance()->getUserGroupManager();
+        if (in_array( 'sysop', $ugm->getUserEffectiveGroups( $user ) )) {
+            // L'utilisateur est un administrateur
+            $data_toolbox[] = array('msg' => $this->msg('specialpages'), 'href'=>'Spécial:Pages_spéciales', 'id'=>'t-special');
+        }
 		return $data_toolbox;
 	}
 

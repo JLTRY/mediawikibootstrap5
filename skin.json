@@ -5,7 +5,7 @@
    "url":"",
    "descriptionmsg":"Bootstrap MediaWiki",
    "namemsg":"Bootstrap MediaWiki",
-   "license-name":"CC0-1.0",
+   "license-name":"GPL-3.0+",
    "type":"skin",
    "requires":{
       "MediaWiki":">= 1.39.1"
