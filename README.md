@@ -7,7 +7,7 @@ This is a MediaWiki skin that uses Bootstrap 5 from Twitter!
 * Customizable menu and icon footer
 
 ## Latest Version
-* 1.1.0
+* 1.1.3
     
 Download the latest [release here][2]. For a full version history go to [here][3].
 
@@ -64,5 +64,5 @@ I have set mine to the following
 ```
 
 [1]: https://getbootstrap.com/docs/5.0/getting-started/introduction/
-[2]: https://github.com/JLTRY/mediawikibootstrap/releases/tag/V1.1.0
+[2]: https://github.com/JLTRY/mediawikibootstrap/releases/tag/V1.1.3
 [3]: https://github.com/JLTRY/mediawikibootstrap/
