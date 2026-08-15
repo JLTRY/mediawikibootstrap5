@@ -10,6 +10,7 @@
 
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Skin\SkinComponentUtils;
+use MediaWiki\Skin\SkinMustache;
 use MediaWiki\Title\Title;
 
 
@@ -42,7 +43,7 @@ class SkinMediaWikiBootstrap5  extends SkinMustache {
 		  return null;
 		} else {
 		  $article = new Article($pageTitle);
-		  return $article->getPage()->getContent()->getNativeData();
+		  return $article->getPage()->getContent()->getText();
 		}
 	}
 
@@ -89,10 +90,12 @@ class SkinMediaWikiBootstrap5  extends SkinMustache {
 		// There are some SkinTemplate modifications that occur after the execution of this hook
 		// to add rel attributes and ID attributes.
 		// The only one Minerva needs is this one so we manually add it.
-		foreach( array_keys( $contentNavigationUrls['namespaces'] ) as $id ) {
-			if ( in_array( $id,[ 'user_talk', 'talk' ] ) ) {
-					$contentNavigationUrls['namespaces'][ $id ]['rel'] = 'discussion';
-			}
+        if ( isset( $contentNavigationUrls['namespaces'] ) ) {
+            foreach( array_keys( $contentNavigationUrls['namespaces'] ) as $id ) {
+                if ( in_array( $id,[ 'user_talk', 'talk' ] ) ) {
+                        $contentNavigationUrls['namespaces'][ $id ]['rel'] = 'discussion';
+                }
+            }
 		}
 		$this->contentNavigationUrls = $contentNavigationUrls;
 	}
@@ -123,7 +126,9 @@ class SkinMediaWikiBootstrap5  extends SkinMustache {
 		$title = $out->getTitle();
 		$parentData = parent::getTemplateData();
 		$content_actions = $this->buildContentActionUrls($this->buildContentNavigationUrls());
-		$personal_urls = array_values($this->injectLegacyMenusIntoPersonalTools($this->buildContentNavigationUrls()));
+		$personal_urls = $this->getStructuredPersonalTools();
+        $portletData = $parentData[ 'data-portlets' ];
+        $navUserMenu = $parentData[ 'data-portlets' ]['data-user-menu'] ?? [];
 		$this->data['nav_urls'] = $this->buildNavUrls();
 		$this->data['notspecialpage'] = !$title->isSpecialPage();
 		// Naming conventions for Mustache parameters.
@@ -157,7 +162,7 @@ class SkinMediaWikiBootstrap5  extends SkinMustache {
 			'data-navbar' => $this->data_navbar(),
 			'data-content-actions' => $content_actions,
 			//"data-texts" =>	array_values($wgFooterTexts),
-			'data-personal-urls' => array_values($personal_urls),
+			'data-personal-urls' => $this->data_personal_urls( $navUserMenu ),
 			'data-toolbox' => $this->data_toolbox(),
 			'data-footer-texts' => $this->data_footer_texts(),
 			'data-footer-links' => $this->data_footer_links()
@@ -299,6 +304,22 @@ class SkinMediaWikiBootstrap5  extends SkinMustache {
 		return $data_toolbox;
 	}
 
+
+
+	/*************************************************************************************************/
+	function data_personal_urls($data_menu) {
+
+		$data_personal_urls = array();
+        foreach($data_menu['array-items'] as $item)
+        {
+			$data_personal_urls[] = [
+							'id' => $item["id"],
+							'href' => htmlspecialchars($item["array-links"][0]['array-attributes'][0]['value']),
+							'msg' => $item["array-links"][0]['text']
+						  ];
+		}
+		return $data_personal_urls;
+	}
 
 
 	function data_footer_links() {

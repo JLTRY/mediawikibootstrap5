@@ -17,7 +17,17 @@
             "args": [
                 {
                     "name": "mediawikibootstrap5",
-                    "templateDirectory": "includes/templates"
+                    "templateDirectory": "includes/templates",
+                    "menus": [
+						"user-page",
+						"user-interface-preferences",
+						"notifications",
+						"user-menu",
+						"associated-pages",
+						"views",
+						"actions",
+						"variants"
+					]
                 }
             ]
         }
