@@ -13,13 +13,14 @@
 		display: flex;
 		align-items: center;
 		min-height: 4rem;
-		padding: .75rem 1rem;
+		padding: .75rem 0 .75rem 0;
 		border-bottom: 1px solid #dee2e6;
 	}
 
 	#navbarSupportedContent .mobile-menu-logo {
 		display: block;
 		max-width: calc(100% - 3rem);
+		margin-left: 0;
 	}
 
 	#navbarSupportedContent .mobile-menu-logo img {
@@ -31,7 +32,7 @@
 	}
 
 	#navbarSupportedContent .offcanvas-body {
-		padding: 0 1rem 1rem;
+		padding: 0;
 	}
 
 	#navbarSupportedContent .navbar-nav,
@@ -42,7 +43,7 @@
 
 	#navbarSupportedContent .navbar-nav {
 		margin-left: 0 !important;
-		padding-left: 0;
+		padding-left: 0 !important;
 	}
 
 	#navbarSupportedContent .nav-item {
@@ -88,14 +89,17 @@
 		content: none;
 	}
 
-	#navbarSupportedContent .mm-parent > .nav-link {
-		padding-right: 3.5rem;
+	#navbarSupportedContent .nav-link,
+	#navbarSupportedContent .dropdown-item {
+		padding-left: 0 !important;
+		padding-right: 3rem;
 		margin-left: 0;
 	}
 
-	#navbarSupportedContent .dropdown-item {
-		white-space: normal;
-		padding-left: 2rem;
+	#navbarSupportedContent .mm-parent > .nav-link {
+		padding-left: 0 !important;
+		padding-right: 3.5rem;
+		margin-left: 0;
 	}
 }
 
