@@ -1,4 +1,4 @@
-/* Joomla/Cassiopeia-style mobile offcanvas menu. */
+/* Mobile navigation: Joomla/Cassiopeia-style offcanvas menu. */
 #navbarSupportedContent .mm-toggler {
 	display: none;
 }
@@ -127,17 +127,51 @@
 	}
 }
 
+/* Restore the original desktop navbar appearance. */
 @media (min-width: 992px) {
+	#btn-toggler {
+		display: none;
+	}
+
 	#navbarSupportedContent {
+		display: block !important;
 		position: relative;
 		visibility: visible;
 		transform: none;
 		width: auto;
 		height: auto;
+		padding: 0 !important;
 		border: 0;
+		background: transparent;
 	}
 
 	#navbarSupportedContent .offcanvas-header {
+		display: none;
+	}
+
+	#navbarSupportedContent .offcanvas-body {
+		display: block;
+		padding: 0 !important;
+	}
+
+	#navbarSupportedContent .mobile-menu-brand {
+		display: none;
+	}
+
+	#navbarSupportedContent > .offcanvas-body > ul.menu.navbar-nav {
+		display: flex;
+		width: auto;
+		margin: 0 !important;
+		padding: 0 !important;
+	}
+
+	#navbarSupportedContent .dropdown-menu {
+		position: absolute;
+		width: auto;
+		background: #fff;
+	}
+
+	#navbarSupportedContent .mm-toggler {
 		display: none;
 	}
 }
