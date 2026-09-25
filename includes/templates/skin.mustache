@@ -26,10 +26,14 @@
 			</div>
 		</div>
 
-		<div class="navbar navbar-transparent offcanvas offcanvas-start" tabindex="-1" id="navbarSupportedContent" aria-labelledby="navigationTitle">
+		<div class="navbar navbar-transparent offcanvas offcanvas-start" tabindex="-1" id="navbarSupportedContent" aria-labelledby="mobileMenuLogo">
 			<div class="offcanvas-header">
-				<h2 class="offcanvas-title" id="navigationTitle">Navigation</h2>
-				<button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+				<a class="mobile-menu-logo" href="{{link-mainpage}}" aria-label="Main page">
+					{{#data-logos}}
+						{{^wordmark}}<img src="{{1x}}" width="{{width}}" height="{{height}}" alt="">{{/wordmark}}
+					{{/data-logos}}
+				</a>
+				<button type="button" class="btn-close ms-auto" data-bs-dismiss="offcanvas" aria-label="Close"></button>
 			</div>
 			<div class="offcanvas-body">
 				<ul class="menu navbar-nav me-auto">
