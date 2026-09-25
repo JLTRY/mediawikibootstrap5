@@ -1,10 +1,11 @@
 {{#data-navbar}}
 {{#parent}}
-<li class="dropdown nav-item">
+<li class="dropdown nav-item mm-parent">
 	<a href="{{link}}" class="nav-link dropdown-toggle {{class}}" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 		{{title}}
 	</a>
-	<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+	<button type="button" class="mm-toggler" aria-haspopup="true" aria-expanded="false" aria-label="{{title}}"></button>
+	<ul class="dropdown-menu mm-collapse" aria-labelledby="navbarDropdown">
 {{/parent}}
 {{^parent}}
 <li class="nav-item">
@@ -14,7 +15,7 @@
 {{/parent}}
 {{#sublinks}}
 	<li class="nav-item">
-		<a class="dropdown-item nav-link" href="{{link}}">
+		<a class="dropdown-item" href="{{link}}">
 			{{title}}
 		</a>
 	</li>

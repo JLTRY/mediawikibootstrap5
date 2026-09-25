@@ -1,18 +1,19 @@
-/* Mobile navigation: Bootstrap's collapse is the MediaWiki equivalent of
- * Cassiopeia's collapse-metismenu wrapper. */
+/* Joomla/Cassiopeia-style mobile offcanvas menu. */
+#navbarSupportedContent .mm-toggler {
+	display: none;
+}
+
 @media (max-width: 991.98px) {
 	#navbarSupportedContent {
-		width: 100%;
-		padding: .5rem 0;
-		border: 1px solid #dee2e6;
-		border-radius: .25rem;
-		background-color: #fff;
+		width: min(85vw, 360px);
+		background: #fff;
 	}
 
-	#navbarSupportedContent .navbar-nav {
-		width: 100%;
+	#navbarSupportedContent .offcanvas-body {
+		padding: 0 1rem 1rem;
 	}
 
+	#navbarSupportedContent .navbar-nav,
 	#navbarSupportedContent .nav-item,
 	#navbarSupportedContent .dropdown-menu {
 		width: 100%;
@@ -24,27 +25,58 @@
 		margin: 0;
 		border: 0;
 		box-shadow: none;
-		background-color: #f8f9fa;
+		background: #f8f9fa;
+	}
+
+	#navbarSupportedContent .mm-collapse {
+		display: none;
+	}
+
+	#navbarSupportedContent .mm-parent.is-open > .mm-collapse {
+		display: block;
+	}
+
+	#navbarSupportedContent .mm-toggler {
+		display: block;
+		position: absolute;
+		right: 1rem;
+		margin-top: -3rem;
+		width: 2.5rem;
+		height: 2.5rem;
+		border: 0;
+		background: transparent;
+	}
+
+	#navbarSupportedContent .mm-toggler::after {
+		content: '+';
+		font-size: 1.4rem;
+	}
+
+	#navbarSupportedContent .mm-parent.is-open > .mm-toggler::after {
+		content: '−';
+	}
+
+	#navbarSupportedContent .mm-parent > .nav-link {
+		padding-right: 3rem;
 	}
 
 	#navbarSupportedContent .dropdown-item {
 		white-space: normal;
 		padding-left: 2rem;
 	}
-
-	#navbarSupportedContent .nav-link {
-		padding: .75rem 1rem;
-	}
-
-	#btn-toggler {
-		top: 0;
-		left: 0;
-		position: relative;
-	}
 }
 
 @media (min-width: 992px) {
 	#navbarSupportedContent {
-		display: block !important;
+		position: relative;
+		visibility: visible;
+		transform: none;
+		width: auto;
+		height: auto;
+		border: 0;
+	}
+
+	#navbarSupportedContent .offcanvas-header {
+		display: none;
 	}
 }
