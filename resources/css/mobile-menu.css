@@ -159,10 +159,23 @@
 	}
 
 	#navbarSupportedContent > .offcanvas-body > ul.menu.navbar-nav {
-		display: flex;
+		display: flex !important;
+		flex-direction: row !important;
+		align-items: center;
 		width: auto;
 		margin: 0 !important;
 		padding: 0 !important;
+		list-style: none;
+	}
+
+	#navbarSupportedContent > .offcanvas-body > ul.menu.navbar-nav > li {
+		display: block;
+		width: auto;
+		white-space: nowrap;
+	}
+
+	#navbarSupportedContent > .offcanvas-body > ul.menu.navbar-nav > li > .nav-link {
+		white-space: nowrap;
 	}
 
 	#navbarSupportedContent .dropdown-menu {
