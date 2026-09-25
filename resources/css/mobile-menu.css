@@ -13,16 +13,26 @@
 	#navbarSupportedContent .offcanvas-header {
 		display: flex;
 		align-items: center;
-		min-height: 4rem;
-		padding: .75rem 0 !important;
-		border-bottom: 1px solid #dee2e6;
+		justify-content: flex-end;
+		min-height: 3rem;
+		padding: .5rem 0 !important;
+		border-bottom: 0;
+	}
+
+	#navbarSupportedContent .offcanvas-body {
+		padding: 0 !important;
+	}
+
+	#navbarSupportedContent .mobile-menu-brand {
+		margin: 0 0 1rem;
+		padding: 0;
 	}
 
 	#navbarSupportedContent .mobile-menu-logo {
 		display: block;
-		max-width: calc(100% - 3rem);
 		margin: 0 !important;
 		padding: 0 !important;
+		max-width: 100%;
 	}
 
 	#navbarSupportedContent .mobile-menu-logo img {
@@ -30,16 +40,10 @@
 		width: auto;
 		height: auto;
 		max-width: 100%;
-		max-height: 3rem;
+		max-height: 10rem;
 		margin: 0 !important;
 	}
 
-	#navbarSupportedContent .offcanvas-body {
-		padding: 0 !important;
-	}
-
-	/* Reset the first-level menu itself. This is the menu alignment, not the
-	 * submenu alignment. */
 	#navbarSupportedContent > .offcanvas-body > ul.menu.navbar-nav {
 		display: block;
 		width: 100%;
@@ -56,7 +60,6 @@
 		list-style: none;
 	}
 
-	/* Main menu links start at exactly the same x-position as the logo. */
 	#navbarSupportedContent > .offcanvas-body > ul.menu.navbar-nav > li.nav-item > .nav-link {
 		display: block;
 		width: 100%;
@@ -108,8 +111,6 @@
 		content: none;
 	}
 
-	/* Subitems may have their own indentation; they are deliberately excluded
-	 * from the first-level alignment rule above. */
 	#navbarSupportedContent .dropdown-item {
 		white-space: normal;
 		padding-left: 2rem;

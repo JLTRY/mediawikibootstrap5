@@ -28,14 +28,16 @@
 
 		<div class="navbar navbar-transparent offcanvas offcanvas-start" tabindex="-1" id="navbarSupportedContent" aria-labelledby="mobileMenuLogo">
 			<div class="offcanvas-header">
-				<a class="mobile-menu-logo" href="{{link-mainpage}}" aria-label="Main page">
-					{{#data-logos}}
-						{{^wordmark}}<img src="{{1x}}" width="{{width}}" height="{{height}}" alt="">{{/wordmark}}
-					{{/data-logos}}
-				</a>
 				<button type="button" class="btn-close ms-auto" data-bs-dismiss="offcanvas" aria-label="Close"></button>
 			</div>
 			<div class="offcanvas-body">
+				<div class="mobile-menu-brand">
+					<a class="mobile-menu-logo" href="{{link-mainpage}}" aria-label="Main page">
+						{{#data-logos}}
+							{{^wordmark}}<img src="{{1x}}" width="{{width}}" height="{{height}}" alt="">{{/wordmark}}
+						{{/data-logos}}
+					</a>
+				</div>
 				<ul class="menu navbar-nav me-auto">
 					{{>NavBar}}
 					{{#is-registered}}
