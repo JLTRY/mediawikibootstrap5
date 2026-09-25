@@ -12,16 +12,21 @@
 
 	#navbarSupportedContent .offcanvas-header {
 		display: flex;
+		position: relative;
 		align-items: center;
-		justify-content: flex-end;
+		justify-content: flex-end !important;
+		width: 100%;
 		min-height: 3rem;
 		padding: 10px !important;
 		border-bottom: 0;
 	}
 
 	#navbarSupportedContent .offcanvas-header .btn-close {
-		margin-left: auto !important;
-		margin-right: 0 !important;
+		position: absolute;
+		top: 10px;
+		right: 10px;
+		margin: 0 !important;
+		padding: .5rem;
 	}
 
 	#navbarSupportedContent .offcanvas-body {
