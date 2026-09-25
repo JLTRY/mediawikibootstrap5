@@ -15,12 +15,17 @@
 		align-items: center;
 		justify-content: flex-end;
 		min-height: 3rem;
-		padding: .5rem 0 !important;
+		padding: 10px !important;
 		border-bottom: 0;
 	}
 
+	#navbarSupportedContent .offcanvas-header .btn-close {
+		margin-left: auto !important;
+		margin-right: 0 !important;
+	}
+
 	#navbarSupportedContent .offcanvas-body {
-		padding: 0 !important;
+		padding: 10px !important;
 	}
 
 	#navbarSupportedContent .mobile-menu-brand {
