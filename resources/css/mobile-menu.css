@@ -1,0 +1,199 @@
+/* Mobile navigation: Joomla/Cassiopeia-style offcanvas menu. */
+#navbarSupportedContent .mm-toggler {
+	display: none;
+}
+
+@media (max-width: 991.98px) {
+
+	#navbarSupportedContent {
+		width: min(85vw, 360px);
+		padding: 0 !important;
+		background: #fff;
+	}
+
+	#navbarSupportedContent .offcanvas-header {
+		display: flex;
+		position: relative;
+		align-items: center;
+		justify-content: flex-end !important;
+		width: 100%;
+		min-height: 3rem;
+		padding: 10px !important;
+		border-bottom: 0;
+	}
+
+	#navbarSupportedContent .offcanvas-header .btn-close {
+		position: absolute;
+		top: 10px;
+		right: 10px;
+		margin: 0 !important;
+		padding: .5rem;
+	}
+
+	#navbarSupportedContent .offcanvas-body {
+		padding: 10px !important;
+	}
+
+	#navbarSupportedContent .mobile-menu-brand {
+		margin: 0 0 1rem;
+		padding: 0;
+	}
+
+	#navbarSupportedContent .mobile-menu-logo {
+		display: block;
+		margin: 0 !important;
+		padding: 0 !important;
+		max-width: 100%;
+	}
+
+	#navbarSupportedContent .mobile-menu-logo img {
+		display: block;
+		width: auto;
+		height: auto;
+		max-width: 100%;
+		max-height: 10rem;
+		margin: 0 !important;
+	}
+
+	#navbarSupportedContent > .offcanvas-body > ul.menu.navbar-nav {
+		display: block;
+		width: 100%;
+		margin: 0 !important;
+		padding: 0 !important;
+		list-style: none;
+	}
+
+	#navbarSupportedContent > .offcanvas-body > ul.menu.navbar-nav > li.nav-item {
+		display: block;
+		width: 100%;
+		margin: 0 !important;
+		padding: 0 !important;
+		list-style: none;
+	}
+
+	#navbarSupportedContent > .offcanvas-body > ul.menu.navbar-nav > li.nav-item > .nav-link {
+		display: block;
+		width: 100%;
+		margin: 0 !important;
+		padding: .75rem 3.5rem .75rem 0 !important;
+	}
+
+	#navbarSupportedContent .nav-item,
+	#navbarSupportedContent .dropdown-menu {
+		width: 100%;
+	}
+
+	#navbarSupportedContent .dropdown-menu {
+		position: static;
+		float: none;
+		margin: 0 !important;
+		border: 0;
+		box-shadow: none;
+		background: #f8f9fa;
+		padding-left: 0;
+	}
+
+	#navbarSupportedContent .mm-collapse {
+		display: none;
+	}
+
+	#navbarSupportedContent .mm-parent.is-open > .mm-collapse {
+		display: block;
+	}
+
+	#navbarSupportedContent .mm-parent {
+		position: relative;
+	}
+
+	#navbarSupportedContent .mm-toggler {
+		display: block;
+		position: absolute;
+		right: 0;
+		top: 0;
+		width: 3rem;
+		height: 100%;
+		border: 0;
+		background: transparent;
+		font-size: 0;
+		cursor: pointer;
+	}
+
+	#navbarSupportedContent .mm-toggler::after {
+		content: none;
+	}
+
+	#navbarSupportedContent .dropdown-item {
+		white-space: normal;
+		padding-left: 2rem;
+	}
+}
+
+/* Restore the original desktop navbar appearance. */
+
+@media (min-width: 992px) {
+	#btn-toggler {
+		display: none;
+	}
+	.mobile-menu-brand {
+		display: none;
+	}
+	#navbarSupportedContent {
+		position: relative! important;
+	}
+}
+/*
+	#navbarSupportedContent {
+		display: block !important;
+		position: relative;
+		visibility: visible;
+		transform: none;
+		width: auto;
+		height: auto;
+		padding: 0 !important;
+		border: 0;
+		background: transparent;
+	}
+
+	#navbarSupportedContent .offcanvas-header {
+		display: none;
+	}
+
+	#navbarSupportedContent .offcanvas-body {
+		display: block;
+		padding: 0 !important;
+	}
+
+	#navbarSupportedContent .mobile-menu-brand {
+		display: none;
+	}
+
+	#navbarSupportedContent > .offcanvas-body > ul.menu.navbar-nav {
+		display: flex !important;
+		flex-direction: row !important;
+		align-items: center;
+		width: auto;
+		margin: 0 !important;
+		padding: 0 !important;
+		list-style: none;
+	}
+
+	#navbarSupportedContent > .offcanvas-body > ul.menu.navbar-nav > li {
+		display: block;
+		width: auto;
+		white-space: nowrap;
+	}
+
+	#navbarSupportedContent > .offcanvas-body > ul.menu.navbar-nav > li > .nav-link {
+		white-space: nowrap;
+	}
+
+	#navbarSupportedContent .dropdown-menu {
+		position: absolute;
+		width: auto;
+		background: #fff;
+	}
+
+	#navbarSupportedContent .mm-toggler {
+		display: none;
+	}
+}*/

@@ -7,71 +7,17 @@
    "namemsg":"Bootstrap MediaWiki",
    "license-name":"GPL-3.0+",
    "type":"skin",
-   "requires":{
-      "MediaWiki":">= 1.45.1"
-   },
-    "ValidSkinNames": {
-        "mediawikibootstrap5": {
-            "class": "SkinMediaWikiBootstrap5",
-            "@args": "See SkinMediaWikiBootstrap5::__construct for more detail.",
-            "args": [
-                {
-                    "name": "mediawikibootstrap5",
-                    "templateDirectory": "includes/templates",
-                    "menus": [
-						"user-page",
-						"user-interface-preferences",
-						"notifications",
-						"user-menu",
-						"associated-pages",
-						"views",
-						"actions",
-						"variants"
-					]
-                }
-            ]
-        }
-    },
-   "MessagesDirs":{
-      "mediawikibootstrap5":[
-         "i18n"
-      ]
-   },
+   "requires":{"MediaWiki":">= 1.45.1"},
+   "ValidSkinNames":{"mediawikibootstrap5":{"class":"SkinMediaWikiBootstrap5","@args":"See SkinMediaWikiBootstrap5::__construct for more detail.","args":[{"name":"mediawikibootstrap5","templateDirectory":"includes/templates","menus":["user-page","user-interface-preferences","notifications","user-menu","associated-pages","views","actions","variants"]}]}},
+   "MessagesDirs":{"mediawikibootstrap5":["i18n"]},
    "ResourceModules":{
-      "skins.mediawikibootstrap5":{
-         "styles":[
-            "../../vendor/twbs/bootstrap/dist/css/bootstrap.min.css",
-            "./resources/css/joomla.css",
-            "./resources/css/mediawiki.css"
-            ]
-      },
-      "skins.mediawikibootstrap5.custom":{
-         "styles":{
-         }
-      },
-      "skins.mediawikibootstrap5.js":{
-         "scripts":[
-            "./resources/js/mediawiki.js",
-			"./resources/js/megamenu.js",
-            "../../vendor/components/jquery/jquery.min.js",
-            "../../vendor/twbs/bootstrap/dist/js/bootstrap.bundle.js"
-         ]
-      },
-      "skins.mediawikibootstrap5.custom.js":{
-         "scripts":[
-            
-         ]
-      }
+      "skins.mediawikibootstrap5":{"styles":["../../vendor/twbs/bootstrap/dist/css/bootstrap.min.css","./resources/css/joomla.css","./resources/css/mediawiki.css","./resources/css/mobile-menu.css"]},
+      "skins.mediawikibootstrap5.custom":{"styles":{}},
+      "skins.mediawikibootstrap5.js":{"scripts":["./resources/js/mediawiki.js","./resources/js/megamenu.js","./resources/js/mobile-menu.js","../../vendor/components/jquery/jquery.min.js","../../vendor/twbs/bootstrap/dist/js/bootstrap.bundle.js"]},
+      "skins.mediawikibootstrap5.custom.js":{"scripts":[]}
    },
-   "ResourceFileModulePaths":{
-      "localBasePath":"",
-      "remoteSkinPath":"mediawikibootstrap5"
-   },
-   "ResourceModuleSkinStyles":{
-      
-   },
-   "AutoloadClasses":{
-      "SkinMediaWikiBootstrap5":"includes/MediaWikiBootstrap5.skin.php"
-   },
+   "ResourceFileModulePaths":{"localBasePath":"","remoteSkinPath":"mediawikibootstrap5"},
+   "ResourceModuleSkinStyles":{},
+   "AutoloadClasses":{"SkinMediaWikiBootstrap5":"includes/MediaWikiBootstrap5.skin.php"},
    "manifest_version":1
 }
