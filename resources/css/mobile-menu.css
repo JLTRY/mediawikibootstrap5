@@ -4,6 +4,7 @@
 }
 
 @media (max-width: 991.98px) {
+
 	#navbarSupportedContent {
 		width: min(85vw, 360px);
 		padding: 0 !important;
@@ -128,11 +129,19 @@
 }
 
 /* Restore the original desktop navbar appearance. */
+
 @media (min-width: 992px) {
 	#btn-toggler {
 		display: none;
 	}
-
+	.mobile-menu-brand {
+		display: none;
+	}
+	#navbarSupportedContent {
+		position: relative! important;
+	}
+}
+/*
 	#navbarSupportedContent {
 		display: block !important;
 		position: relative;
@@ -187,4 +196,4 @@
 	#navbarSupportedContent .mm-toggler {
 		display: none;
 	}
-}
+}*/

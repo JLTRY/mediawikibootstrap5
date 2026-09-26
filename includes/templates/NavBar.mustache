@@ -8,20 +8,20 @@
 	<ul class="dropdown-menu mm-collapse" aria-labelledby="navbarDropdown">
 {{/parent}}
 {{^parent}}
-<li class="nav-item">
+<li class="nav-item" >
 	<a href="{{link}}" class="nav-link">
 		{{title}}
 	</a>
-{{/parent}}
+{{/parent}}		
 {{#sublinks}}
-	<li class="nav-item">
-		<a class="dropdown-item" href="{{link}}">
-			{{title}}
-		</a>
-	</li>
+<li>
+	<a class="dropdown-item" href="{{link}}">
+		{{title}} 
+	</a>
+</li>
 {{/sublinks}}
-{{#sublinks.length}}
-	</ul>
-{{/sublinks.length}}
+{{#sublinks.length}}	
+</ul>
+{{/sublinks.length}}	
 </li>
 {{/data-navbar}}

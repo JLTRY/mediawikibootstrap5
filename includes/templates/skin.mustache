@@ -25,29 +25,30 @@
 				</div>
 			</div>
 		</div>
-
-		<div class="navbar navbar-transparent offcanvas offcanvas-start" tabindex="-1" id="navbarSupportedContent" aria-labelledby="mobileMenuLogo">
-			<div class="offcanvas-header">
-				<button type="button" class="btn-close ms-auto" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-			</div>
-			<div class="offcanvas-body">
-				<div class="mobile-menu-brand">
-					<a class="mobile-menu-logo" href="{{link-mainpage}}" aria-label="Main page">
-						{{#data-logos}}
-							{{^wordmark}}<img src="{{1x}}" width="{{width}}" height="{{height}}" alt="">{{/wordmark}}
-						{{/data-logos}}
-					</a>
+		<nav class="navbar navbar-expand-lg" style="position:relative">
+			<div class="offcanvas offcanvas-start" tabindex="-1" id="navbarSupportedContent" aria-labelledby="mobileMenuLogo">
+				<div class="offcanvas-header">
+					<button type="button" class="btn-close ms-auto" data-bs-dismiss="offcanvas" aria-label="Close"></button>
 				</div>
-				<ul class="menu navbar-nav me-auto">
-					{{>NavBar}}
-					{{#is-registered}}
-					{{>PersonalUrls}}
-					{{>ContentActions}}
-					{{>ToolBox}}
-					{{/is-registered}}
-				</ul>
+				<div class="offcanvas-body">
+					<div class="mobile-menu-brand">
+						<a class="mobile-menu-logo" href="{{link-mainpage}}" aria-label="Main page">
+							{{#data-logos}}
+								{{^wordmark}}<img src="{{1x}}" width="{{width}}" height="{{height}}" alt="">{{/wordmark}}
+							{{/data-logos}}
+						</a>
+					</div>
+					<ul class="menu navbar-nav me-auto">
+						{{>NavBar}}
+						{{#is-registered}}
+						{{>PersonalUrls}}
+						{{>ContentActions}}
+						{{>ToolBox}}
+						{{/is-registered}}
+					</ul>
+				</div>
 			</div>
-		</div>
+		</nav>
 		<div class="container">
 			<h1 class="firstHeading">{{{html-title}}}</h1>
 			{{{html-output}}}
