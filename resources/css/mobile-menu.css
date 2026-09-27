@@ -1,11 +1,37 @@
+
 /* Mobile navigation: Joomla/Cassiopeia-style offcanvas menu. */
 #navbarSupportedContent .mm-toggler {
 	display: none;
 }
 
-@media (max-width: 991.98px) {
+@media (min-width: 992px) {
+ .mobile-only { display: none!important; }
+}
 
-	#navbarSupportedContent {
+@media (max-width: 991.98px) {
+	.pc-only { display: none!important; }
+	.navbar-toggler {
+		border: 1px solid;
+	}
+
+	#navbarSupportedContent > .offcanvas-body > ul.menu.navbar-nav {
+		display: block;
+		width: 100%;
+		margin: 0 !important;
+		padding: 0 !important;
+		list-style: none;
+	}
+	
+	#navbarSupportedContent .dropdown-menu {
+		position: static;
+		float: none;
+		margin: 0 !important;
+		border: 0;
+		box-shadow: none;
+		background: #f8f9fa;
+		padding-left: 0;
+	}
+/*	#navbarSupportedContent {
 		width: min(85vw, 360px);
 		padding: 0 !important;
 		background: #fff;
@@ -55,13 +81,7 @@
 		margin: 0 !important;
 	}
 
-	#navbarSupportedContent > .offcanvas-body > ul.menu.navbar-nav {
-		display: block;
-		width: 100%;
-		margin: 0 !important;
-		padding: 0 !important;
-		list-style: none;
-	}
+
 
 	#navbarSupportedContent > .offcanvas-body > ul.menu.navbar-nav > li.nav-item {
 		display: block;
@@ -83,15 +103,7 @@
 		width: 100%;
 	}
 
-	#navbarSupportedContent .dropdown-menu {
-		position: static;
-		float: none;
-		margin: 0 !important;
-		border: 0;
-		box-shadow: none;
-		background: #f8f9fa;
-		padding-left: 0;
-	}
+
 
 	#navbarSupportedContent .mm-collapse {
 		display: none;
@@ -125,10 +137,10 @@
 	#navbarSupportedContent .dropdown-item {
 		white-space: normal;
 		padding-left: 2rem;
-	}
+	}*/
 }
 
-/* Restore the original desktop navbar appearance. */
+
 
 @media (min-width: 992px) {
 	#btn-toggler {

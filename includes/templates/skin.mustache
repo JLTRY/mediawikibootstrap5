@@ -5,7 +5,7 @@
 	<div class="container mw-body">
 		<nav class="row navbar navbar-expand-lg navbar-light bg-faded" aria-label="Toggle navigation">
 			<button class="navbar-toggler ml-auto collapsed" id="btn-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-				<span class="navbar-toggler-icon"></span>
+				<i class="fa-solid fa-bars"></i>
 			</button>
 		</nav>
 		<div class="header">
@@ -21,7 +21,7 @@
 					<div class="col-lg-12 col-6">
 						{{^is-registered}}<br/>{{{html-connexion}}}{{/is-registered}}
 					</div>
-					<div class="col-lg-12 col-6"><br/>{{{html-search-box}}}</div>
+					<div class="col-lg-12 col-6 pc-only"><br/>{{{html-search-box}}}</div>
 				</div>
 			</div>
 		</div>
@@ -38,6 +38,7 @@
 							{{/data-logos}}
 						</a>
 					</div>
+					<div class="mobile-only"><br/>{{{html-search-box}}}</div>
 					<ul class="menu navbar-nav me-auto">
 						{{>NavBar}}
 						{{#is-registered}}
