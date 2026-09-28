@@ -3,7 +3,7 @@
 </head>
 <body class="site">
 	<div class="container mw-body">
-		<nav class="row navbar navbar-expand-lg navbar-light bg-faded" aria-label="Toggle navigation">
+		<nav class="navbar navbar-expand-lg" aria-label="Toggle navigation">
 			<button class="navbar-toggler ml-auto collapsed" id="btn-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 				<i class="fa-solid fa-bars"></i>
 			</button>
@@ -38,7 +38,16 @@
 							{{/data-logos}}
 						</a>
 					</div>
-					<div class="mobile-only"><br/>{{{html-search-box}}}</div>
+					<div class="mobile-only"><br/>{{#data-search-box}}
+						<div role="search" class="portlet" id="p-search">
+							<!-- <h3 id="p-search-label" {{{html-user-language-attributes}}}><label for="searchInput">{{msg-search}}</label></h3>-->
+							<div class="pBody" id="searchBody">
+								<form action="{{form-action}}" id="searchform"><input type="hidden" value="{{page-title}}" name="title">{{{html-input}}}{{{html-button-search-fallback}}}</form>
+							</div>
+							<hr>
+						</div>
+						{{/data-search-box}}
+					</div>
 					<ul class="menu navbar-nav me-auto">
 						{{>NavBar}}
 						{{#is-registered}}

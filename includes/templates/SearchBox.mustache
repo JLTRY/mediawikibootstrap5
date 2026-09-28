@@ -4,7 +4,7 @@
 <div id="p-search" role="search" class="{{class}}">
 	<div>
 		<h3 {{{html-user-language-attributes}}}>
-			<label for="searchInput">{{msg-search}}</label>
+			<!-- <label for="searchInput">{{msg-search}}</label> -->
 		</h3>
 		<form action="{{form-action}}" id="searchform">
 			<div id="simpleSearch"{{#input-location}} data-search-loc="{{.}}"{{/input-location}}>
@@ -23,6 +23,7 @@
 			</div>
 		</form>
 	</div>
+	<hr>
 	{{#is-collapsible}}
 	{{#data-collapse-icon}}
 	{{>Button}}
