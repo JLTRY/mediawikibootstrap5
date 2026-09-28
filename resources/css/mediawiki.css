@@ -306,10 +306,6 @@ ul {
 	.mobile-only {
 		display: none !important;
 	}
-	#simpleSearch input[type="submit"],
-	#simpleSearch button {
-		display: none !important;
-	}
 }
 
 /* Mobile search box styling in offcanvas menu */
@@ -354,9 +350,12 @@ ul {
 		width: 100% !important;
 	}
 
+	/* Show and style search buttons on mobile */
 	#simpleSearch input[type="submit"],
 	#simpleSearch button {
 		flex-shrink: 0 !important;
+		display: inline-block !important;
+		position: static !important;
 		padding: 0.5rem 0.75rem !important;
 		background-color: #0d6efd !important;
 		color: white !important;
@@ -365,11 +364,24 @@ ul {
 		cursor: pointer !important;
 		font-weight: 600 !important;
 		white-space: nowrap !important;
-		display: block !important;
+		margin: 0 !important;
+		height: auto !important;
+		width: auto !important;
+		font-size: 0.9rem !important;
+		line-height: 1.5 !important;
+		opacity: 1 !important;
+		visibility: visible !important;
 	}
 
 	#simpleSearch input[type="submit"]:hover,
 	#simpleSearch button:hover {
 		background-color: #0b5ed7 !important;
+	}
+
+	/* Ensure buttons are clickable */
+	#simpleSearch input[type="submit"]:disabled,
+	#simpleSearch button:disabled {
+		opacity: 0.5 !important;
+		cursor: not-allowed !important;
 	}
 }
