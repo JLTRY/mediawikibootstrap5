@@ -24,13 +24,6 @@ a
 {
 	color: #0088cc;
 }
-.navbar-toggler {
-	max-width: 100px;
-	top: -20px;
-	left: 10px;
-	position: relative;
-}
-
 
 
 .nav-link:focus,
@@ -44,7 +37,7 @@ a
 }
 
 .container img {
-	max-width : 95%;		
+	max-width : 95%;
 	margin-left: -4px;
 }
 

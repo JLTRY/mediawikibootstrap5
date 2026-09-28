@@ -165,7 +165,8 @@ class SkinMediaWikiBootstrap5  extends SkinMustache {
 			'data-personal-urls' => $this->data_personal_urls( $navUserMenu ),
 			'data-toolbox' => $this->data_toolbox(),
 			'data-footer-texts' => $this->data_footer_texts(),
-			'data-footer-links' => $this->data_footer_links()
+			'data-footer-links' => $this->data_footer_links(),
+            'data-search-box' => $this->buildSearchProps(),
 		]);
 
 
@@ -334,5 +335,29 @@ class SkinMediaWikiBootstrap5  extends SkinMustache {
 			$lines[] = ["line" => $line];
 		}
 		return $lines;
+	}
+
+	/**
+	 * @return array
+	 */
+	private function buildSearchProps() : array {
+		$config = $this->getConfig();
+		$skin = $this->getSkin();
+		$props = [
+			'form-action' => $config->get( 'Script' ),
+			'html-button-search-fallback' => $this->makeSearchButton(
+				'image',
+				[ 'id' => 'mw-searchButton', 'class' => 'button', 'width' => 16, 'src' => $this->getConfig()->get( 'StylePath' ) . "/MediaWikiBootstrap5/images/search-13-32.png" ]
+			),
+			'html-button-search' => $this->makeSearchButton(
+				'image',
+				[ 'id' => 'searchButton', 'class' => 'button', 'width' => 16,
+                  'src' => $this->getConfig()->get( 'StylePath' ) . "/MediaWikiBootstrap5/images/search-13-32.png" ]
+			),
+			'html-input' => $this->makeSearchInput( [ 'id' => 'searchInput' ] ),
+			'msg-search' => $skin->msg( 'search' ),
+			'page-title' => SpecialPage::getTitleFor( 'Search' )->getPrefixedDBkey(),
+		];
+		return $props;
 	}
 }
