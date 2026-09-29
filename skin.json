@@ -13,7 +13,9 @@
    "ResourceModules":{
       "skins.mediawikibootstrap5":{"styles":["../../vendor/twbs/bootstrap/dist/css/bootstrap.min.css", "./resources/awesome/css/all.min.css", "./resources/css/joomla.css","./resources/css/mediawiki.css","./resources/css/mobile-menu.css"]},
       "skins.mediawikibootstrap5.custom":{"styles":{}},
-      "skins.mediawikibootstrap5.js":{"scripts":["./resources/js/mediawiki.js","./resources/js/megamenu.js", "../../vendor/components/jquery/jquery.min.js","../../vendor/twbs/bootstrap/dist/js/bootstrap.bundle.js"]},
+      "skins.mediawikibootstrap5.js":{"scripts":["./resources/js/mediawiki.js","./resources/js/megamenu.js", "../../vendor/twbs/bootstrap/dist/js/bootstrap.bundle.js"],
+                                      "dependencies": [ "mediawiki.util" ]
+                                     },
       "skins.mediawikibootstrap5.custom.js":{"scripts":[]}
    },
    "ResourceFileModulePaths":{"localBasePath":"","remoteSkinPath":"MediaWikiBootstrap5"},
