@@ -5,17 +5,11 @@
 
 .navbar-toggler {
 	max-width: 100px;
-	top: -20px;
-	left: 10px;
+	top: 0px;
+	left: -5px;
 	position: relative;
 }
 
-.navbar-toggler {
-	max-width: 100px;
-	top: -20px;
-	left: 10px;
-	position: relative;
-}
 
 /* Prevent button from becoming bold on click/focus */
 .navbar-toggler:active,
