@@ -149,7 +149,8 @@ class SkinMediaWikiBootstrap5  extends SkinMustache {
 		// Conditionally used values must use null to indicate absence (not false or '').
 
 		$commonSkinData = array_merge( $parentData, [
-			'html-connexion' => $this->connexion(),
+			'html-connexion' => $this->html_connexion(),
+            'html-mobile-connexion' => $this->html_connexion(true),
 			'html-search-box' => $this->html_search_box(),
 			'html-get-user-name' => $this->getUser()->getName(),
 			'html-title' => $out->getPageTitle(),
@@ -168,8 +169,6 @@ class SkinMediaWikiBootstrap5  extends SkinMustache {
 			'data-footer-links' => $this->data_footer_links(),
             'data-search-box' => $this->buildSearchProps(),
 		]);
-
-
 		return $commonSkinData;
 	}
 
@@ -177,15 +176,19 @@ class SkinMediaWikiBootstrap5  extends SkinMustache {
 
 
 
-	function connexion(): string {
+	function html_connexion($mobile=false): string {
 		$templateParser = $this->getTemplateParser();
 		$returnto = SkinComponentUtils::getReturnToParam($this->getTitle(),
 			$this->getRequest(),
 			$this->getAuthority());
 		$loginData = $this->buildLoginData( $returnto, True );
 		wfDebugLog( 'bootstrap5',  print_r($loginData, 1));
-		return $templateParser->processTemplate('UserLinks__login',
-				 [ 'htmlLogin' => $this->makeLink( 'login', $loginData )]);
+        if ($mobile == false) {
+            return $templateParser->processTemplate('UserLinks__login',
+                     [ 'htmlLogin' => $this->makeLink( 'login', $loginData )]);
+        } else {
+            return '<a href="' . $loginData['href'] . '"><button class="button navbar-toggler"><i class="fa-solid fa-user"></i></button></a>';
+        }
 	}
 
 
