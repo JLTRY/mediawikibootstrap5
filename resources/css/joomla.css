@@ -189,7 +189,7 @@ body .container {
 		max-width: 180px;
 		position : relative;
 		left: 20px;
-		top: 20px;	
+		top: 20px;
 		border-top: none;
 		border-bottom: none;
 		border:solid 1px #ddd;
@@ -203,7 +203,7 @@ body .container {
 		top : -18px;
 		margin-top: 0px;
 		padding-left: 0px;
-		padding-bottom: 0px;		
+		padding-bottom: 0px;
 	}
 }
 
@@ -255,10 +255,7 @@ body .container {
 		position: absolute;
 		float: none;
 		top: 0;
-		left: 10px !important;
 		margin-right: 10px;
-		margin-left: -10px;
-		padding-left: 10px;
 	}
 
 	.nav-pills > li  {
