@@ -6,7 +6,8 @@ jQuery(document).ready(function ($) {
     return check;
   };
   window.isTouchDevice = (('ontouchstart' in window) || (navigator.msMaxTouchPoints > 0));
-
+  //
+  if (window.mobileCheck()) { return; }
   // process dropdown hover event
   var navitem_selector = ".navbar-nav .nav-item";
   var hideDropdowns = function ($activeitem) {

@@ -53,14 +53,21 @@
 		background: #f8f9fa;
 		padding-left: 0;
 	}
-
+	.navbar-nav .nav-link.dropdown-toggle {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
+	.dropdown-toggle::after {
+		margin-right: .225em;
+	}
 }
 
 
 
 @media (min-width: 992px) {
 	#btn-toggler {
-		display: none;
+		//display: none;
 	}
 	.mobile-menu-brand {
 		display: none;
