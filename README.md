@@ -26,9 +26,9 @@ wfLoadSkin('MediaWikiBootstrap5');
 $wgDefaultSkin = 'mediawikibootstrap5';
 ```
 
-### dependencies
-To bootstrap5 and jquery
-In `composer.local.json` set:
+### Dependencies
+To add bootstrap5 and jquery
+In `composer.local.json` add lines:
 ```json
 {
 	"require": {        
@@ -38,7 +38,7 @@ In `composer.local.json` set:
 }
 ```
 
-### customize your skin
+### Customize your skin
 #### Create: 'MediaWikiBootstrap:TitleBar'
 This MediaWiki page will contain items that will appear in your Menu. 
  I've set mine to the following:

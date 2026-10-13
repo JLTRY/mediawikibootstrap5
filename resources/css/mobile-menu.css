@@ -61,6 +61,9 @@
 	.dropdown-toggle::after {
 		margin-right: .225em;
 	}
+	.mobile-only.row {
+		padding: 5px;
+	}
 }
 
 

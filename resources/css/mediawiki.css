@@ -111,21 +111,21 @@ td.fc-header-left,span.fc-button-today,span.srf-calendarbutton-pane,span.srf-cal
 
 figure {
 	margin: 5px !important
-}	
+}
 
 
 @media (min-width:320px ) and (max-width: 592px){
 	.navigation {
-		top: -102px ;	
+		top: -102px ;
 	}
 	.navbar-nav {
 	  padding-left: 2rem;
 	}
-	
+
 }
 @media (min-width:120px ) and (max-width: 320px){
 	.navigation {
-		top: -62px ;	
+		top: -62px ;
 	}
 }
 
@@ -218,7 +218,7 @@ li {
 	margin: 0;
 	padding: 0;
 	list-style: none;
-	
+
 }
 
 .catlinks li {
@@ -293,4 +293,9 @@ dl {
 		margin-bottom: 0;
 		margin-right: 0;
 		}
+}
+
+
+.markdown-heading {
+	max-height: 35px;
 }

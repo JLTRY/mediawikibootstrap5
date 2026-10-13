@@ -9,11 +9,11 @@ body.mediawiki, body.mediawiki
 {
 	border-top: 3px solid #0088cc;
 	background-color: #f4f6f7;
-    border-top-width: 0 !important;
+	border-top-width: 0 !important;
 	background: #fafafa url('http://images.jltryoen.fr/headbg.jpg') top left no-repeat fixed !important;
 }
 
-	
+
 
 body {
 	font-size: 13px !important;
@@ -28,8 +28,8 @@ a
 
 .nav-link:focus,
 .nav-link:hover {
-    color:var(--bs-navbar-hover-color);
-    background-color: #e9ecef;
+	color:var(--bs-navbar-hover-color);
+	background-color: #e9ecef;
 }
 
 .dropdown-menu {
@@ -42,8 +42,10 @@ a
 }
 
 .header img
-{  
-   box-shadow: 4px 4px 2px #888888;
+{
+	box-shadow: 4px 4px 2px #888888;
+	padding-top: 5px;
+}
 }
 
 .container
@@ -59,15 +61,13 @@ body .container {
 	-moz-border-radius: 4px;
 	-webkit-border-radius: 4px;
 	border-radius: 4px;
-	padding: 20px;
-		padding-bottom: 20px;
 	-moz-box-shadow: 0px 0px 6px rgba(0,0,0,0.05);
 	-webkit-box-shadow: 0px 0px 6px rgba(0,0,0,0.05);
 	box-shadow: 0px 0px 6px rgba(0,0,0,0.05);
 }
 
 .well {
-    padding: 15px;
+	padding: 15px;
 }
 
 
@@ -81,26 +81,26 @@ body .container {
 
 @media (max-width: 320px){
 	.navigation {
-		padding: 0px 0;	
+		padding: 0px 0;
 		max-width: 150px;
 		position : relative;
 		left: -4px;
-		top: -55px;	
+		top: -55px;
 		border-top: none;
-		border-bottom: none;	
+		border-bottom: none;
 	}
 }
 
 
 @media (min-width:320px ) and (max-width: 592px){
 	.navigation {
-		padding: 0px 0;	
+		padding: 0px 0;
 		max-width: 150px;
 		position : relative;
 		left: -4px;
-		top: -75px ;	
+		top: -75px ;
 		border-top: none;
-		border-bottom: none;	
+		border-bottom: none;
 	}
 	.navbar .btn, .navbar .btn-group {
 		margin-top: 15px;
@@ -116,7 +116,7 @@ body .container {
 		float: right;
 		display: block;
 	}
-	
+
 	.nav {
 		margin-bottom: 2px;
 		margin-top: 2px;
@@ -149,11 +149,11 @@ body .container {
 	}
 
 	.brand {
-
 		align: center;
 	}
 	.body .container {
 		padding: 2px;
+		margin:0px;
 	}
 
 	.container {
@@ -185,7 +185,7 @@ body .container {
 	}
 	.navbar-collapse
 	{
-		padding: 0px 0;	
+		padding: 0px 0;
 		max-width: 180px;
 		position : relative;
 		left: 20px;
@@ -265,7 +265,7 @@ body .container {
 		display: block !important;
 	}
 
-    div.offset1_2 {
+	div.offset1_2 {
 		margin-left: 50px !important;
 	}
 	.row-fluid div.offset1_2,.row-fluid .offset1-2 {
@@ -288,6 +288,9 @@ body .container {
 		margin-left: 0.66% !important;
 		*margin-left: 0.52% !important;
 	}
+	body.container {
+		padding: 5px;
+	}
 }
 
 @media (min-width: 980px) and (max-width: 1199px) {
@@ -297,6 +300,9 @@ body .container {
 	.row-fluid .offset1_4,.offset1-4 {
 		margin-left: 1.16% !important;
 		*margin-left: 1.12% !important;
+	}
+	body.container {
+		padding: 10px;
 	}
 }
 
@@ -313,6 +319,9 @@ body .container {
 	}
 	.brand {
 		min-height: 100px;
+	}
+	body.container {
+		padding: 20px;
 	}
 }
 
