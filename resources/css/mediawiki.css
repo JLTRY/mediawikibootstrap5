@@ -299,3 +299,7 @@ dl {
 .markdown-heading {
 	max-height: 35px;
 }
+
+.octicon.octicon-link {
+	display: none;
+}
